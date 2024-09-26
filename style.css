@@ -1,0 +1,18 @@
+.custom-container {
+  max-width: 1200px; /* Adjust the max-width as needed */
+}
+.img-rounded {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h1,
+h2 {
+  font-family: "Arial", sans-serif; /* Change font-family as needed */
+}
+p.lead {
+  font-size: 1.25rem; /* Adjust font size for lead paragraph */
+}
+.navbar-brand,
+.nav-link {
+  font-family: "Arial", sans-serif; /* Change font-family as needed */
+}

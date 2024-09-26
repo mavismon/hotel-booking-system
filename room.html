@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Booking System</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      background-color: rgb(251, 253, 243);
+    }
+
+    .custom-container {
+      max-width: 1200px; /* Adjust the max-width as needed */
+    }
+
+    .img-rounded {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Arial", sans-serif; /* Change font-family as needed */
+    }
+
+    p.lead {
+      font-size: 1.25rem; /* Adjust font size for lead paragraph */
+    }
+
+    .navbar-brand,
+    .nav-link {
+      font-family: "Arial", sans-serif; /* Change font-family as needed */
+      color: #ffffff;
+    }
+
+    .navbar {
+      background-color: rgb(207, 245, 205);
+    }
+
+    .icon-style {
+      font-size: 22px;
+      color: rgb(0, 0, 0);
+      margin-right: 8px; /* Space between icon and text */
+    }
+
+    .brand-name {
+      font-size: 20px; /* Adjust text size */
+      font-weight: bold;
+      color: rgb(0, 0, 0); /* Text color */
+      text-transform: uppercase; /* Uppercase text for a more refined look */
+      letter-spacing: 1px; /* Slight letter spacing for a modern feel */
+      transition: color 0.3s ease; /* Smooth color transition */
+    }
+
+    .navbar-brand:hover .brand-name {
+      color: #342f2f; /* Change text color on hover */
+    }
+
+    .btn {
+      background-color: rgb(35, 34, 32);
+    }
+
+    .fixed-size {
+      width: 150;
+      height: auto; /* Set a fixed height for all images */
+      object-fit: cover; /* Ensure images cover the set height and width */
+    }
+
+    .custom-btn {
+      transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+    }
+
+    .btn-book {
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-color: rgb(207, 245, 205);
+      font-size: large;
+      font-weight: 500;
+    }
+    .btn-book:active {
+      background-color: rgb(0, 0, 0); /* Change background color when clicked */
+      color: rgb(
+        255,
+        255,
+        255
+      ) !important; /* Change text color to black when clicked */
+    }
+
+
+    .custom-btn:active {
+      background-color: rgb(
+        207,
+        245,
+        205
+      ); /* Change background color when clicked */
+      color: black !important; /* Change text color to black when clicked */
+    }
+
+ 
+    .c-textcolor {
+      color: #2d5f99; /* Replace with your desired color */
+    }
+
+    .c-pricecolor {
+      color: #d9534f; /* Replace with your desired color */
+    }
+
+    .image-fluid {
+      padding: 0 !important;
+    }
+
+    .image-fluid img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .custom-margin
+    {
+      margin-left: 5px;
+    }
+  </style>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <i class="bi bi-house-door icon-style"></i>
+        <span class="brand-name">Hotel Queen</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="room.html">Rooms</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+      </div>
+    </header>
+
+      <section class="search-form py-5 mt-5" style=" background-color: rgb(251, 253, 243);">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+           
+
+            <form id="searchForm" action="searchRooms.php" method="GET">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="checkIn">Check-In Date</label>
+                  <input type="date" class="form-control" id="checkIn" name="checkIn" required />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="guests">Guests</label>
+                  <input type="number" class="form-control" id="guests" name="guests" min="1" max="10" required />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-book btn-block">Search</button>
+            </form>
+
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+    <section class="container-fluid mt-1">
+      <div class="row no-gutters ">
+
+
+        <div class="col-md-6 image-fluid">
+          <img src="images/delux.jpg" alt="rooms" />
+        </div>
+
+        
+
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mb-2 ml-3 ">
+            <span class="text-warning h5 mb-0"
+              >&#9733; &#9733; &#9733; &#9733; &#9733;</span
+            >
+            <span class="ml-2 text-muted">62 Reviews</span>
+          </div>
+          <h3 class="card-title ml-3">Luxury Super Delux</h3>
+          <p class="card-text text-muted ml-3">
+            Ripior incididunt ut labore et dolore magna aliqua. Ut enim ad
+            terras ut labore bore et dolore magna aliqua. Ut enim ad cornn
+            dolor.
+          </p>
+
+          <div class="d-flex align-items-center mb-3 ml-3">
+            <span class="h4 mb-0">
+              Starts from
+              <span class="h3 font-weight-bold c-pricecolor">$299</span> / NIGHT
+            </span>
+          </div>
+
+          <ul class="list-unstyled mb-4 ml-3">
+            <li><strong>Status:</strong> Available</li>
+            <li><strong>Payment:</strong> 20% Advanced</li>
+            <li><strong>Guest:</strong> 4</li>
+            <li><strong>Beds:</strong> 2</li>
+          </ul>
+
+          
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+
+        <div class="col-md-6 mt-4">
+          <div class="d-flex align-items-center mb-2 ml-3 ">
+            <span class="text-warning h5 mb-0"
+              >&#9733; &#9733; &#9733; &#9733; &#9733;</span
+            >
+            <span class="ml-2 text-muted">62 Reviews</span>
+          </div>
+          <h3 class="card-title ml-3">Luxury Double Room</h3>
+          <p class="card-text text-muted ml-3">
+            Ripior incididunt ut labore et dolore magna aliqua. Ut enim ad
+            terras ut labore bore et dolore magna aliqua. Ut enim ad cornn
+            dolor.
+          </p>
+
+          <div class="d-flex align-items-center mb-3 ml-3">
+            <span class="h4 mb-0">
+              Starts from
+              <span class="h3 font-weight-bold c-pricecolor">$200</span> / NIGHT
+            </span>
+          </div>
+
+          <ul class="list-unstyled mb-4 ml-3">
+            <li><strong>Status:</strong> Available</li>
+            <li><strong>Payment:</strong> 20% Advanced</li>
+            <li><strong>Guest:</strong>3</li>
+            <li><strong>Beds:</strong>2</li>
+          </ul>
+        </div>
+
+
+        <div class="col-md-6 image-fluid">
+          <img src="images/double.jpg" alt="rooms" />
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-md-6 image-fluid">
+          <img src="images/twin.jpg" alt="rooms" />
+        </div>
+
+         <div class="col-md-6 mt-4">
+          <div class="d-flex align-items-center mb-2 ml-3 ">
+            <span class="text-warning h5 mb-0"
+              >&#9733; &#9733; &#9733; &#9733; &#9733;</span
+            >
+            <span class="ml-2 text-muted">62 Reviews</span>
+          </div>
+          <h3 class="card-title ml-3">Luxury Twin Room</h3>
+          <p class="card-text text-muted ml-3">
+            Ripior incididunt ut labore et dolore magna aliqua. Ut enim ad
+            terras ut labore bore et dolore magna aliqua. Ut enim ad cornn
+            dolor.
+          </p>
+
+          <div class="d-flex align-items-center mb-3 ml-3">
+            <span class="h4 mb-0">
+              Starts from
+              <span class="h3 font-weight-bold c-pricecolor">$279</span> / NIGHT
+            </span>
+          </div>
+
+          <ul class="list-unstyled mb-4 ml-3">
+            <li><strong>Status:</strong> Available</li>
+            <li><strong>Payment:</strong> 20% Advanced</li>
+            <li><strong>Guest:</strong> 4</li>
+            <li><strong>Beds:</strong> 2</li>
+          </ul>
+
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+
+       <div class="col-md-6 mt-4">
+          <div class="d-flex align-items-center mb-2 ml-3 ">
+            <span class="text-warning h5 mb-0"
+              >&#9733; &#9733; &#9733; &#9733; &#9733;</span
+            >
+            <span class="ml-2 text-muted">62 Reviews</span>
+          </div>
+          <h3 class="card-title ml-3">Luxury Hollywood Twin Room</h3>
+          <p class="card-text text-muted ml-3">
+            Ripior incididunt ut labore et dolore magna aliqua. Ut enim ad
+            terras ut labore bore et dolore magna aliqua. Ut enim ad cornn
+            dolor.
+          </p>
+
+          <div class="d-flex align-items-center mb-3 ml-3">
+            <span class="h4 mb-0">
+              Starts from
+              <span class="h3 font-weight-bold c-pricecolor">$300</span> / NIGHT
+            </span>
+          </div>
+
+          <ul class="list-unstyled mb-4 ml-3">
+            <li><strong>Status:</strong> Available</li>
+            <li><strong>Payment:</strong> 20% Advanced</li>
+            <li><strong>Guest:</strong>3</li>
+            <li><strong>Beds:</strong>2</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 image-fluid">
+          <img src="images/htwin.jpg" alt="rooms" />
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-md-6 image-fluid">
+          <img src="images/juniorsuite.jpg" alt="rooms" />
+        </div>
+
+        <div class="col-md-6 mt-3">
+          <div class="d-flex align-items-center mb-2 ml-3">
+            <span class="text-warning h5 mb-0"
+              >&#9733; &#9733; &#9733; &#9733; &#9733;</span
+            >
+            <span class="ml-2 text-muted">62 Reviews</span>
+          </div>
+          <h3 class="card-title ml-3">Luxury Junior Suite Room</h3>
+          <p class="card-text text-muted ml-3">
+            Ripior incididunt ut labore et dolore magna aliqua. Ut enim ad
+            terras ut labore bore et dolore magna aliqua. Ut enim ad cornn
+            dolor.
+          </p>
+
+          <div class="d-flex align-items-center mb-3 ml-3">
+            <span class="h4 mb-0">
+              Starts from
+              <span class="h3 font-weight-bold c-pricecolor">$499</span> / NIGHT
+            </span>
+          </div>
+
+          <ul class="list-unstyled mb-4 ml-3">
+            <li><strong>Status:</strong> Available</li>
+            <li><strong>Payment:</strong> 20% Advanced</li>
+            <li><strong>Guest:</strong>4</li>
+            <li><strong>Beds:</strong> 2</li>
+          </ul>
+
+         
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-md-6 mt-4">
+          <div class="d-flex align-items-center mb-2 ml-3 ">
+            <span class="text-warning h5 mb-0"
+              >&#9733; &#9733; &#9733; &#9733; &#9733;</span
+            >
+            <span class="ml-2 text-muted">62 Reviews</span>
+          </div>
+          <h3 class="card-title ml-3">Luxury Suite Room</h3>
+          <p class="card-text text-muted ml-3">
+            Ripior incididunt ut labore et dolore magna aliqua. Ut enim ad
+            terras ut labore bore et dolore magna aliqua. Ut enim ad cornn
+            dolor.
+          </p>
+
+          <div class="d-flex align-items-center mb-3 ml-3">
+            <span class="h4 mb-0">
+              Starts from
+              <span class="h3 font-weight-bold c-pricecolor">$390</span> / NIGHT
+            </span>
+          </div>
+
+          <ul class="list-unstyled mb-4 ml-3">
+            <li><strong>Status:</strong> Available</li>
+            <li><strong>Payment:</strong> 20% Advanced</li>
+            <li><strong>Guest:</strong>5</li>
+            <li><strong>Beds:</strong>2</li>
+          </ul>
+        </div>
+
+
+        <div class="col-md-6 image-fluid">
+          <img src="images/suiteroom.jpg" alt="rooms" />
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-md-6 image-fluid">
+          <img src="images/studio.jpg" alt="rooms" />
+        </div>
+
+        <div class="col-md-6 mt-3">
+          <div class="d-flex align-items-center mb-2 ml-3">
+            <span class="text-warning h5 mb-0"
+              >&#9733; &#9733; &#9733; &#9733; &#9733;</span
+            >
+            <span class="ml-2 text-muted">62 Reviews</span>
+          </div>
+          <h3 class="card-title ml-3">Luxury Studio Delux</h3>
+          <p class="card-text text-muted ml-3">
+            Ripior incididunt ut labore et dolore magna aliqua. Ut enim ad
+            terras ut labore bore et dolore magna aliqua. Ut enim ad cornn
+            dolor.
+          </p>
+
+          <div class="d-flex align-items-center mb-3 ml-3">
+            <span class="h4 mb-0">
+              Starts from
+              <span class="h3 font-weight-bold c-pricecolor">$400</span> / NIGHT
+            </span>
+          </div>
+
+          <ul class="list-unstyled mb-4 ml-3">
+            <li><strong>Status:</strong> Available</li>
+            <li><strong>Payment:</strong> 20% Advanced</li>
+            <li><strong>Guest:</strong>4</li>
+            <li><strong>Beds:</strong> 2</li>
+          </ul>
+
+        
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-md-6 mt-4">
+          <div class="d-flex align-items-center mb-2 ml-3 ">
+            <span class="text-warning h5 mb-0"
+              >&#9733; &#9733; &#9733; &#9733; &#9733;</span
+            >
+            <span class="ml-2 text-muted">62 Reviews</span>
+          </div>
+          <h3 class="card-title ml-3">Luxury King Room</h3>
+          <p class="card-text text-muted ml-3">
+            Ripior incididunt ut labore et dolore magna aliqua. Ut enim ad
+            terras ut labore bore et dolore magna aliqua. Ut enim ad cornn
+            dolor.
+          </p>
+
+          <div class="d-flex align-items-center mb-3 ml-3">
+            <span class="h4 mb-0">
+              Starts from
+              <span class="h3 font-weight-bold c-pricecolor">$300</span> / NIGHT
+            </span>
+          </div>
+
+          <ul class="list-unstyled mb-4 ml-3">
+            <li><strong>Status:</strong> Available</li>
+            <li><strong>Payment:</strong> 20% Advanced</li>
+            <li><strong>Guest:</strong>3</li>
+            <li><strong>Beds:</strong>2</li>
+          </ul>
+        </div>
+
+
+        <div class="col-md-6 image-fluid">
+          <img src="images/king.jpg" alt="rooms" />
+        </div>
+      </div>
+    </section>
+
+    <div class="d-flex justify-content-center mt-4">
+      <button type="submit" class="btn text-black btn-book">
+        View More Rooms
+      </button>
+    </div>
+
+
+
+    <div class=" text-black text-center py-3 mt-3 navbar">
+      <div class="col-md-12">
+        <p>&copy; 2024 Hotel Booking. All rights reserved.</p>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-black"></a>Primary Policy</a></li>
+          <li><a href="contact.html" class="text-black">Contact Us</a></li>
+        </ul>
+        <p>
+          Our hotel is conveniently located in the heart of the city, offering
+          easy access to popular attractions, shopping centers, and business
+          districts. We look forward to welcoming you to our hotel and ensuring you have a pleasant stay.
+        </p>
+      </div>
+    </div>
+  </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
